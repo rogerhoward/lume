@@ -3,7 +3,6 @@ import 'dotenv/config'
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import {initalizeDb} from './db'
 import schema from './graphql'
 import chalk from 'chalk'
 import imageRoute from './images'
@@ -14,6 +13,8 @@ import {
   graphiqlExpress,
 } from 'apollo-server-express'
 import iiif, {info} from './iiif'
+import db from './mysql'
+
 
 const upload = multer()
 
@@ -53,12 +54,3 @@ server.use('/', graphqlExpress((req, res) => {
 server.listen(server.get('port'), ()=>{
   console.log(`Server is running at port ${server.get('port')}`)
 })
-
-
-const {
-  initDb
-} = process.env
-
-if (initDb === "true") {
-  initalizeDb()
-}

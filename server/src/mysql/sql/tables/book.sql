@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS book;
+
+CREATE TABLE book (
+  id CHAR(36) NOT NULL,
+  title VARCHAR(100),
+  PRIMARY KEY (id)
+);
