@@ -1,4 +1,4 @@
-# specify the node base image with your desired version node:<version>
+# A basic Dockerfile for the Lume project
 FROM node
 
 RUN mkdir /home/node/lume
